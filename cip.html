@@ -1,0 +1,432 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CIP Player | XML File Generator</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/site.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="css/jquery.fancybox.css" type="text/css" media="all"/>
+</head>
+<body>
+<div class="container">
+<!-- Player Tab -->
+<div class="tabbable tabs-below">
+    <div class="tab-content">
+        <div class="tab-pane">
+            <p> <a class="btn btn-inverse btnMBFix" href="sbp.html">Storybook Player</a><a class="btn btn-inverse btnMBFix disabled" href="javascript:void(0)">CIP Player</a><a class="btn btn-inverse btnMBFix" href="vws.html">Video Wall</a> <a class="btn btn-inverse btnMBFix" href="pg.html">Photo Gallery</a></p>
+        </div>
+    </div>
+    <ul class="nav nav-tabs">
+        <li id="player" class="active"><a class="tabShadow" data-toggle="tab"><i class="icon-chevron-down"></i> SELECT A DIFFERENT XML FILE</a></li>
+    </ul>
+</div>
+<!-- End Player Tab --> 
+<!-- Header -->
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <p> <a id="down" class="btn btn-info" href="#footer"><i class="icon-arrow-down icon-white"></i> ALL THE WAY DOWN</a> </p>
+            <h1>Cognitive Information Processing (CIP) Player XML Generator</h1>
+            <p> Please enter all of the fields to generate an XML for the CIP player. To upload an existing XML file, click the <span class="label label-info"><i class="icon-search icon-white"></i> BROWSE</span> button. </p>
+            <p> <a id="browse" class="btn btn-primary"><i class="icon-search icon-white"></i> BROWSE</a> </p>
+            <p> <small>This button will be disabled on the devices and browsers that prevent file upload.</small> </p>
+        </div>
+    </div>
+</div>
+<!-- End Header --> 
+<!-- Form -->
+<div class="container">
+    <form id="xmlForm">
+        <div class="row">
+            <div class="span12">
+                <h2>Player Setup</h2>
+                <p>The required fields are marked with<sup><i class="icon icon-asterisk"></i></sup>. The rest is optional and will defaulted to default values if left blank.</p>
+                <div class="row">
+                    <div class="span6">
+                        <label for="lesson"><sup><i class="icon icon-asterisk"></i></sup> Lesson name:</label>
+                        <input type="text" class="span6" name="lesson" id="lesson" placeholder="The lesson name does not have to start with the word &quot;lesson.&quot;"/>
+                        <label for="instructor"><sup><i class="icon icon-asterisk"></i></sup> Instructor's name:</label>
+                        <input type="text" class="span6" name="instructor" id="instructor" placeholder="Do not forget to include the respective title standards."/>
+                        <div class="row">
+                            <div class="span3">
+                                <label for="xPos">Poster frame textarea position:</label>
+                                <input type="text" class="span1 centerText" name="xPos" id="xPos" placeholder="234"/>
+                                <span class="timeAlign"> &times; </span>
+                                <input type="text" class="span1 centerText" name="yPos" id="yPos" placeholder="482"/>
+                            </div>
+                            <div class="span3">
+                                <label for="color">Textarea text color:</label>
+                                <div class="input-prepend">
+                                    <span class="add-on">0x</span><input type="text" name="color" id="color" placeholder="000000"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <div class="row">
+                            <div class="span3">
+                                <label for="slideFolder">Slide folder name:</label>
+                                <input type="text" class="span3" name="slideFolder" id="slideFolder" placeholder="slides"/>
+                            </div>
+                            <div class="span3">
+                                <label for="slide">Slide name:</label>
+                                <input type="text" class="span3" name="slide" id="slide" placeholder="slide"/>
+                            </div>
+                            <div class="span3">
+                                <label for="audioFolder">Audio folder name:</label>
+                                <input type="text" class="span3" name="audioFolder" id="audioFolder" placeholder="audio"/>
+                            </div>
+                            <div class="span3">
+                                <label for="audio">Audio name:</label>
+                                <input type="text" class="span3" name="audio" id="audio" placeholder="media"/>
+                            </div>
+                            <div class="span3">
+                                <label for="duration"><sup><i class="icon icon-asterisk"></i></sup> Total Duration:</label>
+                                <input type="text" class="span3" name="duration" id="duration" placeholder="15 Minutes, 65 Minutes, etc."/>
+                            </div>
+                            <div class="span3">
+                                <label for="imageType">Slide image type:</label>
+                                <select type="text" name="imageType" id="imageType" class="span3">
+                                    <option value="jpg">JPG / JPEG</option>
+                                    <option value="png" selected>PNG</option>
+                                    <option value="gif">GIF</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <h2>Instructor's Profile</h2>
+                <fieldset>
+                    <label for="profile">Enter instructor's profile or any information about the lesson.</label>
+                    <textarea name="profile" id="profile" class="span12 tinymce"></textarea>
+                    <p><small><em>Leave it blank will default to "Instructor's profile pending..."</em></small></p>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <h2>Topics</h2>
+                <p>Enter each topic title and its respective slide titles. Select the topic type and check whether it is the end of the topic or not. Click the <span class="label label-inverse"><i class="icon-plus icon-white"></i></span> button to add one more slide. Click the <span class="label label-important"><i class="icon-minus icon-white"></i></span> button to remove the last slide. The slide titles will be listed in the order that it is entered.</p>
+                <p class="alert alert-error"><em><strong>FRIENDLY NOTICE: If you are editing an existing XML file, sometimes, it is much easier to edit in the original XML file by using any text or HTML editors. This XML generator is best used to create the XML from scratch, but if you feel confident that you can sort thing out and do not mind taking additional time and steps, please do continue.</strong></em></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12"> &nbsp; </div>
+        </div>
+        <fieldset id="topics">
+            <div class="row topic">
+                <div class="span1"> <span class="number">1</span> </div>
+                <div class="span11">
+                    <div class="row">
+                        <div class="span5">
+                            <label for="topic1">Topic title:</label>
+                            <input type="text" class="span5" name="topic1" id="topic1"/>
+                        </div>
+                        <div class="span4">
+                            <label>Topic type:</label>
+                            <fieldset>
+                                <label class="radio inline">
+                                    <input type="radio" name="topicType1" id="topicType1" value="main" checked/>
+                                    Main topic </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="topicType1" id="topicType1" value="sub"/>
+                                    Sub topic </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="topicType1" id="topicType1" value="subsub"/>
+                                    Sub-sub topic </label>
+                            </fieldset>
+                        </div>
+                        <div class="span2">
+                            <label>End topic?</label>
+                            <fieldset>
+                                <label class="radio inline">
+                                    <input type="radio" name="endTopic1" id="endTopic1" value="y"/>
+                                    Yes </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="endTopic1" id="endTopic1" value="n" checked/>
+                                    No </label>
+                            </fieldset>
+                        </div>
+                        <div class="offset1 span10">
+                            <fieldset id="slides1">
+                                <label>Slide titles:</label>
+                                <input type="text" class="span10"/>
+                                <input type="text" class="span10"/>
+                                <input type="text" class="span10"/>
+                            </fieldset>
+                            <p class="centerText"> <a id="plusSlide1" class="btn btn-inverse btn-mini"><i class="icon-plus icon-white"></i></a> <a class="btn btn-danger btn-mini" id="minusSlide1"><i class="icon-minus icon-white"></i></a> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row topic">
+                <hr/>
+                <div class="span1"> <span class="number">2</span> </div>
+                <div class="span11">
+                    <div class="row">
+                        <div class="span5">
+                            <label for="topic2">Topic title:</label>
+                            <input type="text" class="span5" name="topic2" id="topic2"/>
+                        </div>
+                        <div class="span4">
+                            <label>Topic type:</label>
+                            <fieldset>
+                                <label class="radio inline">
+                                    <input type="radio" name="topicType2" id="topicType2" value="main" checked/>
+                                    Main topic </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="topicType2" id="topicType2" value="sub"/>
+                                    Sub topic </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="topicType2" id="topicType2" value="subsub"/>
+                                    Sub-sub topic </label>
+                            </fieldset>
+                        </div>
+                        <div class="span2">
+                            <label>End topic?</label>
+                            <fieldset>
+                                <label class="radio inline">
+                                    <input type="radio" name="endTopic2" id="endTopic2" value="y"/>
+                                    Yes </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="endTopic2" id="endTopic2" value="n" checked/>
+                                    No </label>
+                            </fieldset>
+                        </div>
+                        <div class="offset1 span10">
+                            <fieldset id="slides2">
+                                <label>Slide titles:</label>
+                                <input type="text" class="span10"/>
+                                <input type="text" class="span10"/>
+                                <input type="text" class="span10"/>
+                            </fieldset>
+                            <p class="centerText"> <a id="plusSlide2" class="btn btn-inverse btn-mini"><i class="icon-plus icon-white"></i></a> <a class="btn btn-danger btn-mini" id="minusSlide2"><i class="icon-minus icon-white"></i></a> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row topic">
+                <hr/>
+                <div class="span1"> <span class="number">3</span> </div>
+                <div class="span11">
+                    <div class="row">
+                        <div class="span5">
+                            <label for="topic3">Topic title:</label>
+                            <input type="text" class="span5" name="topic3" id="topic3"/>
+                        </div>
+                        <div class="span4">
+                            <label>Topic type:</label>
+                            <fieldset>
+                                <label class="radio inline">
+                                    <input type="radio" name="topicType3" id="topicType3" value="main" checked/>
+                                    Main topic </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="topicType3" id="topicType3" value="sub"/>
+                                    Sub topic </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="topicType3" id="topicType3" value="subsub"/>
+                                    Sub-sub topic </label>
+                            </fieldset>
+                        </div>
+                        <div class="span2">
+                            <label>End topic?</label>
+                            <fieldset>
+                                <label class="radio inline">
+                                    <input type="radio" name="endTopic3" id="endTopic3" value="y"/>
+                                    Yes </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="endTopic3" id="endTopic3" value="n" checked/>
+                                    No </label>
+                            </fieldset>
+                        </div>
+                        <div class="offset1 span10">
+                            <fieldset id="slides3">
+                                <label>Slide titles:</label>
+                                <input type="text" class="span10"/>
+                                <input type="text" class="span10"/>
+                                <input type="text" class="span10"/>
+                            </fieldset>
+                            <p class="centerText"> <a id="plusSlide3" class="btn btn-inverse btn-mini"><i class="icon-plus icon-white"></i></a> <a class="btn btn-danger btn-mini" id="minusSlide3"><i class="icon-minus icon-white"></i></a> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row topic">
+                <hr/>
+                <div class="span1"> <span class="number">4</span> </div>
+                <div class="span11">
+                    <div class="row">
+                        <div class="span5">
+                            <label for="topic2">Topic title:</label>
+                            <input type="text" class="span5" name="topic4" id="topic4"/>
+                        </div>
+                        <div class="span4">
+                            <label>Topic type:</label>
+                            <fieldset>
+                                <label class="radio inline">
+                                    <input type="radio" name="topicType4" id="topicType4" value="main" checked/>
+                                    Main topic </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="topicType4" id="topicType4" value="sub"/>
+                                    Sub topic </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="topicType4" id="topicType4" value="subsub"/>
+                                    Sub-sub topic </label>
+                            </fieldset>
+                        </div>
+                        <div class="span2">
+                            <label>End topic?</label>
+                            <fieldset>
+                                <label class="radio inline">
+                                    <input type="radio" name="endTopic4" id="endTopic4" value="y"/>
+                                    Yes </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="endTopic4" id="endTopic4" value="n" checked/>
+                                    No </label>
+                            </fieldset>
+                        </div>
+                        <div class="offset1 span10">
+                            <fieldset id="slides4">
+                                <label>Slide titles:</label>
+                                <input type="text" class="span10"/>
+                                <input type="text" class="span10"/>
+                                <input type="text" class="span10"/>
+                            </fieldset>
+                            <p class="centerText"> <a id="plusSlide4" class="btn btn-inverse btn-mini"><i class="icon-plus icon-white"></i></a> <a class="btn btn-danger btn-mini" id="minusSlide4"><i class="icon-minus icon-white"></i></a> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row topic">
+                <hr/>
+                <div class="span1"> <span class="number">5</span> </div>
+                <div class="span11">
+                    <div class="row">
+                        <div class="span5">
+                            <label for="topic2">Topic title:</label>
+                            <input type="text" class="span5" name="topic5" id="topic5"/>
+                        </div>
+                        <div class="span4">
+                            <label>Topic type:</label>
+                            <fieldset>
+                                <label class="radio inline">
+                                    <input type="radio" name="topicType5" id="topicType5" value="main" checked/>
+                                    Main topic </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="topicType5" id="topicType5" value="sub"/>
+                                    Sub topic </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="topicType5" id="topicType5" value="subsub"/>
+                                    Sub-sub topic </label>
+                            </fieldset>
+                        </div>
+                        <div class="span2">
+                            <label>End topic?</label>
+                            <fieldset>
+                                <label class="radio inline">
+                                    <input type="radio" name="endTopic5" id="endTopic5" value="y"/>
+                                    Yes </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="endTopic5" id="endTopic5" value="n" checked/>
+                                    No </label>
+                            </fieldset>
+                        </div>
+                        <div class="offset1 span10">
+                            <fieldset id="slides5">
+                                <label>Slide titles:</label>
+                                <input type="text" class="span10"/>
+                                <input type="text" class="span10"/>
+                                <input type="text" class="span10"/>
+                            </fieldset>
+                            <p class="centerText"> <a id="plusSlide5" class="btn btn-inverse btn-mini"><i class="icon-plus icon-white"></i></a> <a class="btn btn-danger btn-mini" id="minusSlide5"><i class="icon-minus icon-white"></i></a> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <hr/>
+        <div class="row" id="controls">
+            <div class="span12">
+                <h3>What would you like?</h3>
+                <p>Click the <span class="label label-inverse"><i class="icon-plus icon-white"></i> ONE TOPIC</span> button to add one topic or enter the number of topics you would like to add and click the <span class="label label-inverse"><i class="icon-plus icon-white"></i> TOPICS</span> button. In case of any circumstances that require the need of removing a topic, click the <span class="label label-important"><i class="icon-minus icon-white"></i> ONE TOPIC</span> button to remove the last topic. Click the <span class="label label-warning"><i class="icon-download-alt icon-white"></i> GET XML</span> button to preview or get the XML. </p>
+                <p><input type="text" class="span1" id="topicNumInput" value="5"/>
+                    <a id="plusMoreTopic" class="btn btn-inverse"><i class="icon-plus icon-white"></i> TOPICS</a> <a id="plusTopic" class="btn btn-inverse"><i class="icon-plus icon-white"></i> ONE TOPIC</a> <a class="btn btn-danger" data-toggle="modal" href="#areUSure"><i class="icon-minus icon-white"></i> ONE TOPIC</a> <a id="backToTop" class="btn btn-info"><i class="icon-arrow-up icon-white"></i> BACK TO TOP</a> </p>
+                <small class="errorText"><em><i class="icon-exclamation-sign"></i> Invalid input. Numbers only.</em></small> </div>
+        </div>
+        <div class="row">
+            <div class="span12"> <a id="getCode" class="btn btn-warning btn-large" href="#xmlArea"><i class="icon-download-alt icon-white"></i> GET XML</a> </div>
+        </div>
+    </form>
+    <hr/>
+    <div class="row" id="footer">
+        <div class="span12">
+            <p> Copyright &copy; 2012. University of Wisconsin Extension - Continuing Education, Outreach, & E-Learning. All rights reserved. </p>
+        </div>
+    </div>
+</div>
+<!-- end form container --> 
+<!-- End Form --> 
+<!-- End XML Output -->
+<div id="xmlArea" class="container">
+    <div class="row">
+        <div class="span12">
+            <h3>XML OUTPUT:</h3>
+        </div>
+        <div class="span12">
+            <textarea readonly class="span12" id="xmlOutput" onclick="this.focus();this.select()"></textarea>
+            <p> <small>Click inside the text area and press Ctrl + C or Command (&#8984;) + C keys to copy the XML.</small> </p>
+        </div>
+        <div id="xmlError" class="span12"> </div>
+    </div>
+</div>
+<!-- End XML Output --> 
+<!-- Are you sure modal -->
+<div class="modal fade" id="areUSure">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">×</button>
+        <h3>Are you sure?</h3>
+    </div>
+    <div class="modal-body">
+        <p> You are about to delete the last topic. Once you deleted it, you <strong>cannot</strong> get it back. </p>
+    </div>
+    <div class="modal-footer"> <a id="closeRUModel" class="btn btn-inverse">NO</a> <a id="minusTopic" class="btn btn-danger">YES</a> </div>
+</div>
+<!-- End are you sure modal --> 
+<!-- Sorry modal -->
+<div class="modal fade" id="sorryNoCanDo">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">×</button>
+        <h3>Sorry, you can't do that!</h3>
+    </div>
+    <div class="modal-body">
+        <p> At least one topic or slide is needed. </p>
+    </div>
+    <div class="modal-footer"> <a id="closeSRYModel" class="btn btn-inverse">OKAY</a> </div>
+</div>
+<!-- End sorry modal --> 
+<!-- File modal -->
+<div class="modal fade" id="fileModel">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">×</button>
+        <h3>Upload an XML File</h3>
+    </div>
+    <div class="modal-body">
+        <div id="drop_zone">DRAG &amp; DROP<br />
+            <span style="font-size:12px;">XML FILE HERE</span></div>
+        <p class="loader"> <img src="img/loader.gif"/> </p>
+        <div id="fileResult"> </div>
+    </div>
+    <div class="modal-footer"> <a id="closeFile" class="btn btn-primary">CLOSE</a> </div>
+</div>
+<!-- End file modal -->
+</body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/bootstrap-modal.js"></script>
+<script type="text/javascript" src="scripts/tiny_mce/jquery.tinymce.js"></script>
+<script type="text/javascript" src="scripts/jquery.fancybox.pack.js"></script>
+<script src="scripts/formCIP.min.js" type="text/javascript"></script>
+</html>

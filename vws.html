@@ -1,0 +1,378 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Video Wall | XML File Generator</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/site.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="css/jquery.fancybox.css" type="text/css" media="all"/>
+</head>
+<body>
+<div class="container">
+<!-- Player Tab -->
+<div class="tabbable tabs-below">
+    <div class="tab-content">
+        <div class="tab-pane">
+            <p> <a class="btn btn-inverse btnMBFix" href="sbp.html">Storybook Player</a><a class="btn btn-inverse btnMBFix" href="cip.html">CIP Player</a><a class="btn btn-inverse btnMBFix disabled" href="JavaScript:void(0);">Video Wall</a> <a class="btn btn-inverse btnMBFix" href="pg.html">Photo Gallery</a></p>
+        </div>
+    </div>
+    <ul class="nav nav-tabs">
+        <li id="player" class="active"><a class="tabShadow" data-toggle="tab"><i class="icon-chevron-down"></i> SELECT A DIFFERENT XML FILE</a></li>
+    </ul>
+</div>
+<!-- End Player Tab --> 
+<!-- Header -->
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <p> <a id="down" class="btn btn-info" href="#footer"><i class="icon-arrow-down icon-white"></i> ALL THE WAY DOWN</a> </p>
+            <h1>Video Wall XML Generator</h1>
+            <p> Please enter all of the fields to generate an XML for the Video Wall. To upload an existing XML file, click the <span class="label label-info"><i class="icon-search icon-white"></i> BROWSE</span> button. </p>
+            <p> <a id="browse" class="btn btn-primary"><i class="icon-search icon-white"></i> BROWSE</a> </p>
+            <p> <small>This button will be disabled on the devices and browsers that prevent file upload.</small> </p>
+        </div>
+    </div>
+</div>
+<!-- End Header --> 
+<!-- Form -->
+<div class="container">
+    <form id="xmlForm">
+        <div class="row">
+            <div class="span12">
+                <h2>Video Wall Setup</h2>
+                <div class="row">
+                    <div class="span12">
+                        <div class="row">
+                            <div class="span2">
+                                <label for="imageType">Image type:</label>
+                                <select type="text" name="imageType" id="imageType" class="span2">
+                                    <option value="jpg" selected>JPG</option>
+                                    <option value="png">PNG</option>
+                                    <option value="gif">GIF</option>
+                                </select>
+                                <label for="groups">Number of groups:</label>
+                                <input name="groups" type="text" class="span2 centerText" id="groups" placeholder="i.e.: 2, 3, 5, etc."/>
+                                <p><small><em>leave it blank for no group</em></small></p>
+                            </div>
+                            <div id="group" class="span10 hide">
+                                <label>Group names:</label>
+                                <div class="row groupRow"> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <h2>Videos</h2>
+                <p>Enter each topic title and its respective slide titles. Select the topic type and check whether it is the end of the topic or not.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12"> &nbsp; </div>
+        </div>
+        <fieldset id="topics">
+            <div class="row topic">
+                <div class="span1"> <span class="number">1</span> </div>
+                <div class="span11">
+                    <div class="row">
+                        <div class="span7">
+                            <label for="fName1">File Name:</label>
+                            <input type="text" class="span7" name="fName1" id="fName1"/>
+                        </div>
+                        <div class="span2">
+                            <label for="group1">Group Number:</label>
+                            <select type="text" name="group1" id="group1" class="span2 groupSelect">
+                                <option value=" " selected></option>
+                                <option value="0">0</option>
+                            </select>
+                        </div>
+                        <div class="span2">
+                            <label>External Source:</label>
+                            <label class="radio inline">
+                                <input type="radio" name="src1" id="src1" value="yes" />
+                                Yes </label>
+                            <label class="radio inline">
+                                <input type="radio" name="src1" value="no" checked />
+                                No </label>
+                        </div>
+                        <div class="span7">
+                            <label for="topic1">Video title:</label>
+                            <input type="text" class="span7" name="topic1" id="topic1"/>
+                        </div>
+                        <div class="span4">
+                            <label for="vidAuth1">Video author(s):</label>
+                            <input type="text" class="span4" name="vidAuth1" id="vidAuth1"/>
+                        </div>
+                        <div class="span11 hide" id="embedTxt1">
+                            <label for="srcEmbed1">External Embed Code:</label>
+                            <input type="text" class="span11" name="srcEmbed1" id="srcEmbed1"/>
+                        </div>
+                        <div class="span11">
+                            <label for="vDes1">Video description:</label>
+                            <textarea class="span11" name="vDes1" id="vDes1"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row topic">
+                <hr />
+                <div class="span1"> <span class="number">2</span> </div>
+                <div class="span11">
+                    <div class="row">
+                        <div class="span7">
+                            <label for="fName2">File Name:</label>
+                            <input type="text" class="span7" name="fName2" id="fName2"/>
+                        </div>
+                        <div class="span2">
+                            <label for="group2">Group Number:</label>
+                            <select type="text" name="group2" id="group2" class="span2 groupSelect">
+                                <option value=" " selected></option>
+                                <option value="0">0</option>
+                            </select>
+                        </div>
+                        <div class="span2">
+                            <label>External Source:</label>
+                            <label class="radio inline">
+                                <input type="radio" name="src2" id="src2" value="yes" />
+                                Yes </label>
+                            <label class="radio inline">
+                                <input type="radio" name="src2" value="no" checked />
+                                No </label>
+                        </div>
+                        <div class="span7">
+                            <label for="topic2">Video title:</label>
+                            <input type="text" class="span7" name="topic2" id="topic2"/>
+                        </div>
+                        <div class="span4">
+                            <label for="vidAuth2">Video author(s):</label>
+                            <input type="text" class="span4" name="vidAuth2" id="vidAuth2"/>
+                        </div>
+                        <div class="span11 hide" id="embedTxt2">
+                            <label for="srcEmbed2">External Embed Code:</label>
+                            <input type="text" class="span11" name="srcEmbed2" id="srcEmbed2"/>
+                        </div>
+                        <div class="span11">
+                            <label for="vDes2">Video description:</label>
+                            <textarea class="span11" name="vDes2" id="vDes2"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row topic">
+                <hr />
+                <div class="span1"> <span class="number">3</span> </div>
+                <div class="span11">
+                    <div class="row">
+                        <div class="span7">
+                            <label for="fName3">File Name:</label>
+                            <input type="text" class="span7" name="fName3" id="fName3"/>
+                        </div>
+                        <div class="span2">
+                            <label for="group3">Group Number:</label>
+                            <select type="text" name="group3" id="group3" class="span2 groupSelect">
+                                <option value=" " selected></option>
+                                <option value="0">0</option>
+                            </select>
+                        </div>
+                        <div class="span2">
+                            <label>External Source:</label>
+                            <label class="radio inline">
+                                <input type="radio" name="src3" id="src3" value="yes" />
+                                Yes </label>
+                            <label class="radio inline">
+                                <input type="radio" name="src3" value="no" checked />
+                                No </label>
+                        </div>
+                        <div class="span7">
+                            <label for="topic3">Video title:</label>
+                            <input type="text" class="span7" name="topic3" id="topic3"/>
+                        </div>
+                        <div class="span4">
+                            <label for="vidAuth3">Video author(s):</label>
+                            <input type="text" class="span4" name="vidAuth3" id="vidAuth3"/>
+                        </div>
+                        <div class="span11 hide" id="embedTxt3">
+                            <label for="srcEmbed3">External Embed Code:</label>
+                            <input type="text" class="span11" name="srcEmbed3" id="srcEmbed3"/>
+                        </div>
+                        <div class="span11">
+                            <label for="vDes3">Video description:</label>
+                            <textarea class="span11" name="vDes3" id="vDes3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row topic">
+                <hr />
+                <div class="span1"> <span class="number">4</span> </div>
+                <div class="span11">
+                    <div class="row">
+                        <div class="span7">
+                            <label for="fName4">File Name:</label>
+                            <input type="text" class="span7" name="fName4" id="fName4"/>
+                        </div>
+                        <div class="span2">
+                            <label for="group4">Group Number:</label>
+                            <select type="text" name="group4" id="group4" class="span2 groupSelect">
+                                <option value=" " selected></option>
+                                <option value="0">0</option>
+                            </select>
+                        </div>
+                        <div class="span2">
+                            <label>External Source:</label>
+                            <label class="radio inline">
+                                <input type="radio" name="src4" id="src4" value="yes" />
+                                Yes </label>
+                            <label class="radio inline">
+                                <input type="radio" name="src4" value="no" checked />
+                                No </label>
+                        </div>
+                        <div class="span7">
+                            <label for="topic4">Video title:</label>
+                            <input type="text" class="span7" name="topic4" id="topic4"/>
+                        </div>
+                        <div class="span4">
+                            <label for="vidAuth4">Video author(s):</label>
+                            <input type="text" class="span4" name="vidAuth4" id="vidAuth4"/>
+                        </div>
+                        <div class="span11 hide" id="embedTxt4">
+                            <label for="srcEmbed4">External Embed Code:</label>
+                            <input type="text" class="span11" name="srcEmbed4" id="srcEmbed4"/>
+                        </div>
+                        <div class="span11">
+                            <label for="vDes4">Video description:</label>
+                            <textarea class="span11" name="vDes4" id="vDes4"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row topic">
+                <hr />
+                <div class="span1"> <span class="number">5</span> </div>
+                <div class="span11">
+                    <div class="row">
+                        <div class="span7">
+                            <label for="fName5">File Name:</label>
+                            <input type="text" class="span7" name="fName5" id="fName5"/>
+                        </div>
+                        <div class="span2">
+                            <label for="group5">Group Number:</label>
+                            <select type="text" name="group5" id="group5" class="span2 groupSelect">
+                                <option value=" " selected></option>
+                                <option value="0">0</option>
+                            </select>
+                        </div>
+                        <div class="span2">
+                            <label>External Source:</label>
+                            <label class="radio inline">
+                                <input type="radio" name="src5" id="src5" value="yes" />
+                                Yes </label>
+                            <label class="radio inline">
+                                <input type="radio" name="src5" value="no" checked />
+                                No </label>
+                        </div>
+                        <div class="span7">
+                            <label for="topic5">Video title:</label>
+                            <input type="text" class="span7" name="topic5" id="topic5"/>
+                        </div>
+                        <div class="span4">
+                            <label for="vidAuth5">Video author(s):</label>
+                            <input type="text" class="span4" name="vidAuth5" id="vidAuth5"/>
+                        </div>
+                        <div class="span11 hide" id="embedTxt5">
+                            <label for="srcEmbed5">External Embed Code:</label>
+                            <input type="text" class="span11" name="srcEmbed5" id="srcEmbed5"/>
+                        </div>
+                        <div class="span11">
+                            <label for="vDes5">Video description:</label>
+                            <textarea class="span11" name="vDes5" id="vDes5"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <hr/>
+        <div class="row" id="controls">
+            <div class="span12">
+                <h3>What would you like?</h3>
+                <p>Click the <span class="label label-inverse"><i class="icon-plus icon-white"></i> ONE TOPIC</span> button to add one topic or enter the number of topics you would like to add and click the <span class="label label-inverse"><i class="icon-plus icon-white"></i> TOPICS</span> button. In case of any circumstances that require the need of removing a topic, click the <span class="label label-important"><i class="icon-minus icon-white"></i> ONE TOPIC</span> button to remove the last topic. Click the <span class="label label-warning"><i class="icon-download-alt icon-white"></i> GET XML</span> button to preview or get the XML. </p>
+                <p>
+                    <input type="text" class="span1" id="topicNumInput" value="5"/>
+                    <a id="plusMoreTopic" class="btn btn-inverse"><i class="icon-plus icon-white"></i> TOPICS</a> <a id="plusTopic" class="btn btn-inverse"><i class="icon-plus icon-white"></i> ONE TOPIC</a> <a class="btn btn-danger" data-toggle="modal" href="#areUSure"><i class="icon-minus icon-white"></i> ONE TOPIC</a> <a id="backToTop" class="btn btn-info"><i class="icon-arrow-up icon-white"></i> BACK TO TOP</a> </p>
+                <small class="errorText"><em><i class="icon-exclamation-sign"></i> Invalid input. Numbers only.</em></small> </div>
+        </div>
+        <div class="row">
+            <div class="span12"> <a id="getCode" class="btn btn-warning btn-large" href="#xmlArea"><i class="icon-download-alt icon-white"></i> GET XML</a> </div>
+        </div>
+    </form>
+    <hr/>
+    <div class="row" id="footer">
+        <div class="span12">
+            <p> Copyright &copy; 2012. University of Wisconsin Extension - Continuing Education, Outreach, & E-Learning. All rights reserved. </p>
+        </div>
+    </div>
+</div>
+<!-- end form container --> 
+<!-- End Form --> 
+<!-- End XML Output -->
+<div id="xmlArea" class="container">
+    <div class="row">
+        <div class="span12">
+            <h3>XML OUTPUT:</h3>
+        </div>
+        <div class="span12">
+            <textarea readonly class="span12" id="xmlOutput" onclick="this.focus();this.select()"></textarea>
+            <p> <small>Click inside the text area and press Ctrl + C or Command (&#8984;) + C keys to copy the XML.</small> </p>
+        </div>
+        <div id="xmlError" class="span12"> </div>
+    </div>
+</div>
+<!-- End XML Output --> 
+<!-- Are you sure modal -->
+<div class="modal fade" id="areUSure">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">×</button>
+        <h3>Are you sure?</h3>
+    </div>
+    <div class="modal-body">
+        <p> You are about to delete the last topic. Once you deleted it, you <strong>cannot</strong> get it back. </p>
+    </div>
+    <div class="modal-footer"> <a id="closeRUModel" class="btn btn-inverse">NO</a> <a id="minusTopic" class="btn btn-danger">YES</a> </div>
+</div>
+<!-- End are you sure modal --> 
+<!-- Sorry modal -->
+<div class="modal fade" id="sorryNoCanDo">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">×</button>
+        <h3>Sorry, you can't do that!</h3>
+    </div>
+    <div class="modal-body">
+        <p> At least one topic is needed. </p>
+    </div>
+    <div class="modal-footer"> <a id="closeSRYModel" class="btn btn-inverse">OKAY</a> </div>
+</div>
+<!-- End sorry modal --> 
+<!-- File modal -->
+<div class="modal fade" id="fileModel">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">×</button>
+        <h3>Upload an XML File</h3>
+    </div>
+    <div class="modal-body">
+        <div id="drop_zone">DRAG &amp; DROP<br />
+            <span style="font-size:12px;">XML FILE HERE</span></div>
+        <p class="loader"> <img src="img/loader.gif"/> </p>
+        <div id="fileResult"> </div>
+    </div>
+    <div class="modal-footer"> <a id="closeFile" class="btn btn-primary">CLOSE</a> </div>
+</div>
+<!-- End file modal -->
+</body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/bootstrap-modal.js"></script>
+<script type="text/javascript" src="scripts/tiny_mce/jquery.tinymce.js"></script>
+<script type="text/javascript" src="scripts/jquery.fancybox.pack.js"></script>
+<script src="scripts/formVWS.min.js" type="text/javascript"></script>
+</html>
