@@ -1,0 +1,223 @@
+$font: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$default-font-size: 14px;
+$gutter: 16px;
+$footer-height: 33px;
+
+@function rem( $px, $base: $default-font-size ) {
+    @return ( $px / $base ) * 1rem;
+}
+
+@import "compass/reset";
+@import "compass/css3/box-sizing";
+@import "compass/utilities/general/clearfix";
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: $default-font-size;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+
+    @extend html;
+    font-size: rem( $default-font-size );
+    line-height: rem( 20px );
+    font-family: $font;
+    font-weight: 300;
+    /* background-color: #a3a3a3; */
+    
+    .container {
+        width: rem( 1024px );
+        min-height: 100%;
+        margin: 0 auto;
+        padding: rem( 35px ) rem( $gutter ) 0;
+        background-color: #fff;
+        margin-top: rem( -35px );
+        margin-bottom: rem( $footer-height * -1 );
+        @include box-sizing( "border-box" );
+    }
+    
+    .container:after {
+        content: "";
+        display: block;
+        height: rem( $footer-height );
+    }
+    
+}
+
+h1 {
+    font-size: rem( 32px );
+    line-height: rem( 38px );
+    font-weight: bold;
+    margin: rem( $gutter ) 0;
+}
+
+h1:first-child {
+    line-height: rem( 32px );
+}
+
+h2 {
+    @extend h1;
+    font-size: rem( 28px );
+    line-height: rem( 34px );
+}
+
+h3 {
+    @extend h1;
+    font-size: rem( 22px );
+    line-height: rem( 28px );
+}
+
+h4 {
+    @extend h1;
+    font-size: rem( 18px );
+    line-height: rem( 24px );
+}
+
+h5 {
+    @extend h1;
+    font-size: rem( 16px );
+    line-height: rem( 22px );
+}
+
+h6 {
+    @extend h1;
+    font-size: rem( 14px );
+    line-height: rem( 20px );
+}
+
+p, ul, ol, blockquote {
+    margin: rem( $gutter ) 0;
+}
+
+ul {
+
+    list-style: disc outside;
+    padding-left: rem( 40px );
+    
+    li {
+    
+        margin: rem( $gutter / 2 ) 0;
+        
+        ul {
+            list-style-type: circle;
+            margin: rem( $gutter / 2 ) 0;
+        }
+        
+        ol {
+            list-style-type: decimal;
+        }
+        
+    }
+    
+}
+
+ol {
+
+    @extend ul;
+    list-style-type: decimal;
+    
+    li {
+        
+        ul {
+            list-style-type: disc;
+        }
+        
+        ol {
+            list-style-type: lower-roman;
+        }
+        
+    }
+    
+}
+
+blockquote {
+    padding-left: rem( 40px );
+    font-size: rem( 18px );
+    line-height: rem( 24px );
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+header {
+    
+    width: 100%;
+    background-color: #2bd341;
+    float: left;
+    clear: both;
+    
+    .container {
+    
+        min-height: 0;
+        background-color: transparent;
+        padding: 0;
+        margin: 0 auto;
+        clear: both;
+        
+        .site {
+            width: 50%;
+            padding: rem( $gutter / 2 ) 0;
+            float: left;
+        }
+        
+        nav {
+            width: 50%;
+            padding: rem( $gutter / 2 ) 0;
+            text-align: right;
+            float: left;
+        }
+                
+    }
+    
+    .container:after {
+        height: 0;
+    }
+    
+}
+
+footer {
+    
+    height: rem( $footer-height );
+    background-color: #55c3eb;
+    
+    .container {
+        
+        min-height: 0;
+        color: #fff;
+        font-size: rem( 12px );
+        line-height: rem( 18px );
+        padding: rem( $gutter / 2 );
+        background-color: transparent;
+        margin: 0 auto;
+        
+        p {
+            margin: 0;
+        }
+        
+    }
+    
+    .container:after {
+        height: 0;
+    }
+    
+}
+
+
+.clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}

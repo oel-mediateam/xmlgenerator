@@ -1,0 +1,271 @@
+/* line 5, ../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/compass-core/stylesheets/compass/reset/_utilities.scss */
+html, body, body, div, span, applet, object, iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, ol, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/compass-core/stylesheets/compass/reset/_utilities.scss */
+html, body {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/compass-core/stylesheets/compass/reset/_utilities.scss */
+ol, ul, ol {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/compass-core/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/compass-core/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/compass-core/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/compass-core/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/compass-core/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/compass-core/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 14, ../scss/screen.scss */
+* {
+  margin: 0;
+}
+
+/* line 18, ../scss/screen.scss */
+html, body {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* line 25, ../scss/screen.scss */
+body {
+  font-size: 1rem;
+  line-height: 1.42857rem;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  /* background-color: #a3a3a3; */
+}
+/* line 34, ../scss/screen.scss */
+body .container {
+  width: 73.14286rem;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 2.5rem 1.14286rem 0;
+  background-color: #fff;
+  margin-top: -2.5rem;
+  margin-bottom: -2.35714rem;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 45, ../scss/screen.scss */
+body .container:after {
+  content: "";
+  display: block;
+  height: 2.35714rem;
+}
+
+/* line 53, ../scss/screen.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-size: 2.28571rem;
+  line-height: 2.71429rem;
+  font-weight: bold;
+  margin: 1.14286rem 0;
+}
+
+/* line 60, ../scss/screen.scss */
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+  line-height: 2.28571rem;
+}
+
+/* line 64, ../scss/screen.scss */
+h2 {
+  font-size: 2rem;
+  line-height: 2.42857rem;
+}
+
+/* line 70, ../scss/screen.scss */
+h3 {
+  font-size: 1.57143rem;
+  line-height: 2rem;
+}
+
+/* line 76, ../scss/screen.scss */
+h4 {
+  font-size: 1.28571rem;
+  line-height: 1.71429rem;
+}
+
+/* line 82, ../scss/screen.scss */
+h5 {
+  font-size: 1.14286rem;
+  line-height: 1.57143rem;
+}
+
+/* line 88, ../scss/screen.scss */
+h6 {
+  font-size: 1rem;
+  line-height: 1.42857rem;
+}
+
+/* line 94, ../scss/screen.scss */
+p, ul, ol, ol, blockquote {
+  margin: 1.14286rem 0;
+}
+
+/* line 98, ../scss/screen.scss */
+ul, ol {
+  list-style: disc outside;
+  padding-left: 2.85714rem;
+}
+/* line 103, ../scss/screen.scss */
+ul li, ol li {
+  margin: 0.57143rem 0;
+}
+/* line 107, ../scss/screen.scss */
+ul li ul, ol li ul, ul li ol, ol li ol {
+  list-style-type: circle;
+  margin: 0.57143rem 0;
+}
+/* line 112, ../scss/screen.scss */
+ul li ol, ol li ol {
+  list-style-type: decimal;
+}
+
+/* line 120, ../scss/screen.scss */
+ol {
+  list-style-type: decimal;
+}
+/* line 127, ../scss/screen.scss */
+ol li ul, ol li ol {
+  list-style-type: disc;
+}
+/* line 131, ../scss/screen.scss */
+ol li ol {
+  list-style-type: lower-roman;
+}
+
+/* line 139, ../scss/screen.scss */
+blockquote {
+  padding-left: 2.85714rem;
+  font-size: 1.28571rem;
+  line-height: 1.71429rem;
+}
+
+/* line 145, ../scss/screen.scss */
+strong {
+  font-weight: bold;
+}
+
+/* line 149, ../scss/screen.scss */
+em {
+  font-style: italic;
+}
+
+/* line 153, ../scss/screen.scss */
+header {
+  width: 100%;
+  background-color: #2bd341;
+  float: left;
+  clear: both;
+}
+/* line 160, ../scss/screen.scss */
+header .container {
+  min-height: 0;
+  background-color: transparent;
+  padding: 0;
+  margin: 0 auto;
+  clear: both;
+}
+/* line 168, ../scss/screen.scss */
+header .container .site {
+  width: 50%;
+  padding: 0.57143rem 0;
+  float: left;
+}
+/* line 174, ../scss/screen.scss */
+header .container nav {
+  width: 50%;
+  padding: 0.57143rem 0;
+  text-align: right;
+  float: left;
+}
+/* line 183, ../scss/screen.scss */
+header .container:after {
+  height: 0;
+}
+
+/* line 189, ../scss/screen.scss */
+footer {
+  height: 2.35714rem;
+  background-color: #55c3eb;
+}
+/* line 194, ../scss/screen.scss */
+footer .container {
+  min-height: 0;
+  color: #fff;
+  font-size: 0.85714rem;
+  line-height: 1.28571rem;
+  padding: 0.57143rem;
+  background-color: transparent;
+  margin: 0 auto;
+}
+/* line 204, ../scss/screen.scss */
+footer .container p {
+  margin: 0;
+}
+/* line 210, ../scss/screen.scss */
+footer .container:after {
+  height: 0;
+}
+
+/* line 218, ../scss/screen.scss */
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
