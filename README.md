@@ -1,4 +1,5 @@
-xmlgenerator
+XML and HTML Generator
 ============
+**_version 1.0.0_**
 
-XML generator
+Generates XML and HTML for media applications.
